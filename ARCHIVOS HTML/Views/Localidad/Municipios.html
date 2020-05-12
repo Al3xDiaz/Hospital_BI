@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Municipios - HBI</title>
+
+  <meta name="description" content="Minimal empty page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- basic styles -->
+
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../../assets/css/jquery-ui-1.10.3.full.min.css" />
+  <link rel="stylesheet" href="../../assets/css/ace-fonts.css" />
+  <link rel="stylesheet" href="../../assets/css/ace.min.css" />
+  <link rel="stylesheet" href="../../assets/css/ace-rtl.min.css" />
+  <link rel="stylesheet" href="../../assets/css/ace-skins.min.css" />
+  <script src="../../assets/js/ace-extra.min.js"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-default" id="navbar">
+	    <script type="text/javascript">
+	      try {
+	        ace.settings.check('navbar', 'fixed')
+	      } catch (e) {}
+	    </script>
+
+	    <div class="navbar-container" id="navbar-container">
+	      <div class="navbar-header pull-left">
+	        <a href="#" class="navbar-brand text-center">
+	          <small>
+	            <img src="../../assets/img/bi-white.png" width="60px" style="margin-left: 12px" />
+	            Hospital
+	          </small>
+	        </a><!-- /.brand -->
+	      </div><!-- /.navbar-header -->
+
+	      <div class="navbar-header pull-right" role="navigation" style="background-color: #438eb9;">
+	        <ul class="nav ace-nav">
+
+
+	          <li class="">
+	            <a data-toggle="dropdown" href="#" class="dropdown-toggle" style="background-color: #438eb9;">
+	              <img class="nav-user-photo" src="../../assets/img/user.png" alt="Jason's Photo" />
+	              <span class="user-info">
+	                <small>Welcome,</small>
+	                Jason
+	              </span>
+
+	              <i class="icon-caret-down"></i>
+	            </a>
+
+	            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+	              <li>
+	                <a href="#">
+	                  <i class="icon-cog"></i>
+	                  Settings
+	                </a>
+	              </li>
+
+	              <li class="divider"></li>
+
+	              <li>
+	                <a href="#">
+	                  <i class="icon-off"></i>
+	                  Logout
+	                </a>
+	              </li>
+	            </ul>
+	          </li>
+	        </ul><!-- /.ace-nav -->
+	      </div><!-- /.navbar-header -->
+	    </div><!-- /.container -->
+  </div>
+
+  <div class="main-container" id="main-container">
+    <script type="text/javascript">
+      try {
+        ace.settings.check('main-container', 'fixed')
+      } catch (e) {}
+    </script>
+
+ <!-- Modal de Editar -->
+  <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Editar Municipios</h5>
+
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+                                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ID Municipios:</label>
+                                 <div class="col-sm-9">
+                                      <input type="text" id="form-field-1" class="col-xs-12 col-sm-8" />
+                                  </div>
+                              </div>
+                        <div class="space-4"></div>
+      <div class="modal-body2">
+        <div class="form-group">
+                              <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Descripcion: </label>
+                              <div class="col-sm-9">
+                                  <input type="text" id="form-field-1" class="col-xs-12 col-sm-8" />
+                                  <span class="help-inline col-xs-12 col-sm-7">
+                                      <span class="middle"></span>
+                                  </span>
+                              </div>
+                          </div>
+        <div class="space-4"></div>
+      </div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+<button type="button" class="btn btn-warning" data-dismiss="modal">Editar</button>
+</div>
+</div>
+</div>
+</div>
+
+<!--Modal de agregar-->
+<div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Municipios</h5>
+
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">ID Municipios:</label>
+                               <div class="col-sm-9">
+                                    <input type="text" id="form-field-1" class="col-xs-12 col-sm-8" />
+                                </div>
+                            </div>
+                      <div class="space-4"></div>
+    <div class="modal-body2">
+      <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Descripcion: </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" class="col-xs-12 col-sm-8" />
+                                <span class="help-inline col-xs-12 col-sm-7">
+                                    <span class="middle"></span>
+                                </span>
+                            </div>
+                        </div>
+      <div class="space-4"></div>
+    </div>
+    <div class="modal-body2">
+      <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> ID Departamento: </label>
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" class="col-xs-12 col-sm-8" />
+                                <span class="help-inline col-xs-12 col-sm-7">
+                                    <span class="middle"></span>
+                                </span>
+                            </div>
+                        </div>
+      <div class="space-4"></div>
+    </div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Modal de Eliminar</h5>
+
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+                                 <div class="col-sm-9">
+                                      ¿Está seguro de que desea eliminar este registro?
+                                  </div>
+                              </div>
+                        <div class="space-4"></div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="main-container-inner">
+      <a class="menu-toggler" id="menu-toggler" href="#">
+        <span class="menu-text"></span>
+      </a>
+
+      <div class="sidebar" id="sidebar">
+	        <script type="text/javascript">
+	          try {
+	            ace.settings.check('sidebar', 'fixed')
+	          } catch (e) {}
+	        </script>
+          <ul class="nav nav-list">
+            <li >
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Consultas</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="..\MedicoGeneral/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    General
+                  </a>
+                </li>
+
+                <li>
+                  <a href="..\MedicoGeneral/IndexConsultasEspecialista.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidad
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li >
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Hospitalizaciones</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li >
+                  <a href="..\SalaCuidados/Index_tbSalaCuidados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Sala de Cuidados
+                  </a>
+                </li>
+
+                <li >
+                  <a href="..\salaCuidadosIntensivos/Index_SalaCuidadosIntensivos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Sala de Cuidados<br>
+                    Intensivos
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li >
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Urgencias</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li >
+                  <a href="..\MedicoEspecialistaEmergencia/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    General
+                  </a>
+                </li>
+
+                <li >
+                  <a href="..\MedicoGeneralEmergencia/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidad
+                  </a>
+                </li>
+              </ul>
+            <li class="active open">
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Central</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="..\Admin_Farmacia/Index_InventarioFarmacia.html">
+                    <i class="icon-double-angle-right"></i>
+                    Inventario Farmacia
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Cargos/Crud_tbCargos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Cargos
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Empleados/Index_tbEmpleados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Empleados
+                  </a>
+                </li>
+                <li >
+                  <a href="..\Empleados/Index_TurnoEmpleados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Empleado Turno
+                  </a>
+                </li>
+
+                <li>
+                  <a href="..\Empleados/Index_TurnoHorarios.html">
+                    <i class="icon-double-angle-right"></i>
+                    Turno Horario
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Especialidades/Index_Especialidad.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidades
+                  </a>
+                </li>
+                <li >
+                  <a href="..\Hospital/Index_InventarioHospital.html">
+                    <i class="icon-double-angle-right"></i>
+                    Inventario Hospital
+
+                  </a>
+                </li>
+                <li>
+                  <a href="..\ListaMedicamentos/Index_ListaMedicamentos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Medicamentos
+
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Pacientes/Index_tbPacientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Pacientes
+
+
+                  </a>
+                </li>
+                <li >
+                  <a href="..\Proveedores/IndexProvedor.html">
+                    <i class="icon-double-angle-right"></i>
+                    Proveedores
+
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Salas/salas.html">
+                    <i class="icon-double-angle-right"></i>
+                    Salas
+                  </a>
+                </li>
+                <li>
+                  <a href="..\Localidad/Crud_tbDepartamentos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Departamentos
+
+                  </a>
+                </li>
+                <li class="active">
+                  <a href="..\Localidad/Municipios.html">
+                    <i class="icon-double-angle-right"></i>
+                    Municipios
+                  </a>
+                </li>
+                <li>
+                  <a href="..\ServiciosMedicos/ServiciosMedicos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Servicios Medicos
+                  </a>
+                </li>
+                <li>
+                  <a href="..\VentanillaConsultaGeneral/IndexConsultasPendientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Ventanilla General
+                  </a>
+                </li>
+                <li>
+                  <a href="..\VentanillaConsultaEmergencia/IndexConsultasPendientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Ventanilla Urgencias
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul><!-- /.nav-list -->
+
+	        <div class="sidebar-collapse" id="sidebar-collapse">
+	          <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+	        </div>
+
+	        <script type="text/javascript">
+	          try {
+	            ace.settings.check('sidebar', 'collapsed')
+	          } catch (e) {}
+	        </script>
+      </div>
+
+      <div class="main-content">
+        <div class="row">
+          <div class="col-md-11">
+            <h3 class="header smaller lighter blue">Listado de Municipios
+              <div style="float:Right;" margin="bottom">
+                <button class="btn btn-info" type="button" id="btnNuevo">
+                  <i class=" bigger-110"></i>
+                  Agregar
+                </button>
+            </div>
+            <br /><br />
+          </h3>
+
+            <div class="table-responsive">
+              <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
+                <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info">
+                  <thead>
+                    <tr role="row">
+                      <th hidden="" class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 61px;" aria-label="">
+                      </th>
+                      <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 149px;" aria-label="Domain: activate to sort column ascending">
+                        ID Municipios
+                      </th>
+                      <th class="sorting_desc" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 159px;" aria-sort="descending" aria-label="Price: activate to sort column ascending">
+                        Descripcion
+                      </th>
+                      <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 175px;" aria-label="Clicks: activate to sort column ascending">
+                        ID Departamento
+                      </th>
+                      <th class="sorting_disabled text-center" role="columnheader" rowspan="1" colspan="1" style="width: 62px;" aria-label="">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody role="alert" aria-live="polite" aria-relevant="all">
+                    <tr class="odd">
+                      <td class="center" hidden="">
+                      </td>
+
+                      <td class="">
+                        1
+                      </td>
+                      <td class=" sorting_1">San Pedro Sula</td>
+                      <td class="hidden-480">1</td>
+
+                      <td class="col-md-2">
+                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+                          <a class="btn btn-minier btn-warning text-center" id="btnEditar" href="#">
+                            Editar &nbsp; <i class="icon-pencil"></i>
+                          </a>
+
+                          <a class="btn btn-minier btn-danger text-center" id="btnEliminar" href="#">
+                            Eliminar &nbsp; <i class="icon-trash"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+
+        <form id="id-message-form" class="hide form-horizontal message-form  col-xs-12">
+          <div class="">
+            <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right" for="form-field-recipient">Recipient:</label>
+
+              <div class="col-sm-9">
+                <span class="input-icon">
+                  <input type="email" name="recipient" id="form-field-recipient" data-value="alex@doe.com" value="alex@doe.com" placeholder="Recipient(s)">
+                  <i class="icon-user"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="hr hr-18 dotted"></div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right" for="form-field-subject">Subject:</label>
+
+              <div class="col-sm-6 col-xs-12">
+                <div class="input-icon block col-xs-12 no-padding">
+                  <input maxlength="100" type="text" class="col-xs-12" name="subject" id="form-field-subject" placeholder="Subject">
+                  <i class="icon-comment-alt"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="hr hr-18 dotted"></div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right">
+                <span class="inline space-24 hidden-480"></span>
+                Message:
+              </label>
+
+              <div class="col-sm-9">
+                <div class="wysiwyg-editor"></div>
+              </div>
+            </div>
+
+            <div class="hr hr-18 dotted"></div>
+
+            <div class="form-group no-margin-bottom">
+              <label class="col-sm-3 control-label no-padding-right">Attachments:</label>
+
+              <div class="col-sm-9">
+                <div id="form-attachments">
+                  <input type="file" name="attachment[]">
+                </div>
+              </div>
+            </div>
+
+            <div class="align-right">
+              <button id="id-add-attachment" type="button" class="btn btn-sm btn-danger">
+                <i class="icon-paper-clip bigger-140"></i>
+                Add Attachment
+              </button>
+            </div>
+
+            <div class="space"></div>
+          </div>
+        </form>
+
+        <div class="hide message-content" id="id-message-content">
+          <div class="message-header clearfix">
+            <div class="pull-left">
+              <span class="blue bigger-125"> Clik to open this message </span>
+
+              <div class="space-4"></div>
+
+              <i class="icon-star orange2 mark-star"></i>
+
+              &nbsp;
+              <img class="middle" alt="John's Avatar" src="../../assets/avatars/avatar.png" width="32">
+              &nbsp;
+              <a href="#" class="sender">John Doe</a>
+
+              &nbsp;
+              <i class="icon-time bigger-110 orange middle"></i>
+              <span class="time">Today, 7:15 pm</span>
+            </div>
+
+            <div class="action-buttons pull-right">
+              <a href="#">
+                <i class="icon-reply green icon-only bigger-130"></i>
+              </a>
+
+              <a href="#">
+                <i class="icon-mail-forward blue icon-only bigger-130"></i>
+              </a>
+
+              <a href="#">
+                <i class="icon-trash red icon-only bigger-130"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="hr hr-double"></div>
+
+          <div class="message-body">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+
+          <div class="hr hr-double"></div>
+
+          <div class="message-attachment clearfix">
+            <div class="attachment-title">
+              <span class="blue bolder bigger-110">Attachments</span>
+              &nbsp;
+              <span class="grey">(2 files, 4.5 MB)</span>
+
+              <div class="inline position-relative">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  &nbsp;
+                  <i class="icon-caret-down bigger-125 middle"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-lighter">
+                  <li>
+                    <a href="#">Download all as zip</a>
+                  </li>
+
+                  <li>
+                    <a href="#">Display in slideshow</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            &nbsp;
+            <ul class="attachment-list pull-left list-unstyled">
+              <li>
+                <a href="#" class="attached-file inline">
+                  <i class="icon-file-alt bigger-110 middle"></i>
+                  <span class="attached-name middle">Document1.pdf</span>
+                </a>
+
+                <div class="action-buttons inline">
+                  <a href="#">
+                    <i class="icon-download-alt bigger-125 blue"></i>
+                  </a>
+
+                  <a href="#">
+                    <i class="icon-trash bigger-125 red"></i>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <a href="#" class="attached-file inline">
+                  <i class="icon-film bigger-110 middle"></i>
+                  <span class="attached-name middle">Sample.mp4</span>
+                </a>
+
+                <div class="action-buttons inline">
+                  <a href="#">
+                    <i class="icon-download-alt bigger-125 blue"></i>
+                  </a>
+
+                  <a href="#">
+                    <i class="icon-trash bigger-125 red"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+
+            <div class="attachment-images pull-right">
+              <div class="vspace-sm-4"></div>
+
+              <div>
+                <img width="36" alt="image 4" src="../../assets/images/gallery/thumb-4.jpg">
+                <img width="36" alt="image 3" src="../../assets/images/gallery/thumb-3.jpg">
+                <img width="36" alt="image 2" src="../../assets/images/gallery/thumb-2.jpg">
+                <img width="36" alt="image 1" src="../../assets/images/gallery/thumb-1.jpg">
+              </div>
+            </div>
+          </div>
+        </div><!-- /.message-content -->
+
+        <!-- PAGE CONTENT ENDS -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+  <!-- PAGE CONTENT ENDS -->
+  </div><!-- /.page-content -->
+  </div><!-- /.main-content -->
+
+
+
+  </div><!-- /.main-container-inner -->
+  </div><!-- /.main-container -->
+
+  <!-- basic scripts -->
+
+  <!--[if !IE]> -->
+
+  <script type="text/javascript">
+    window.jQuery || document.write("<script src='https://code.jquery.com/jquery-3.3.1.js'>" + "<" + "/script>");
+  </script>
+
+  <script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+  </script>
+  <script src="../../assets/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/typeahead-bs2.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="../../assets/js/jquery.dataTables.bootstrap.js"></script>
+  <script src="../../assets/js/ace-elements.min.js"></script>
+  <script src="../../assets/js/ace.min.js"></script>
+
+    <script src="../../assets/js/jquery-ui-1.10.3.full.min.js"></script>
+    <script src="../../assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript">
+
+    jQuery(function($) {
+      var oTable1 = $('#sample-table-2').dataTable({
+        "aoColumns": [{
+            "bSortable": false
+          },
+          null, null, null,
+          {
+            "bSortable": false
+          }
+        ],
+        "language": {
+          "sProcessing":     "Procesando...",
+"sLengthMenu":     "Mostrar _MENU_ registros",
+"sZeroRecords":    "No se encontraron resultados",
+"sEmptyTable":     "Ningún dato disponible en esta tabla",
+"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+"sInfoPostFix":    "",
+"sSearch":         "Buscar:",
+"sUrl":            "",
+"sInfoThousands":  ",",
+"sLoadingRecords": "Cargando...",
+"oPaginate": {
+  "sFirst":    "Primero",
+  "sLast":     "Último",
+  "sNext":     "Siguiente",
+  "sPrevious": "Anterior"
+},
+"oAria": {
+  "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+  "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+}
+        }
+      });
+
+
+
+      $('[data-rel="tooltip"]').tooltip({
+        placement: tooltip_placement
+      });
+
+      function tooltip_placement(context, source) {
+        var $source = $(source);
+        var $parent = $source.closest('table')
+        var off1 = $parent.offset();
+        var w1 = $parent.width();
+
+        var off2 = $source.offset();
+        var w2 = $source.width();
+
+        if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+        return 'left';
+      }
+    })
+  </script>
+
+
+  <script type="text/javascript">
+//AQUI COMIEZA LA FUNCION DEL MODAL
+
+      $('#btnEditar').on('click', function(ev) {
+    $('#ModalEditar').modal({
+        show: 'true'
+    });
+    });
+
+        $('#btnEliminar').on('click', function(ev) {
+    $('#ModalEliminar').modal({
+        show: 'true'
+    });
+  });
+  $('#btnNuevo').on('click', function(ev) {
+$('#modalAgregar').modal({
+  show: 'true'
+});
+});
+
+//AQUI TERMINA LA FUNCION DEL MODAL
+  </script>
+  <!-- inline scripts related to this page -->
+</body>
+
+</html>

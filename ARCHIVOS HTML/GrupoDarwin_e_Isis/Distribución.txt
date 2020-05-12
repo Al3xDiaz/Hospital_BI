@@ -1,0 +1,5 @@
+Darwin: Yo por mi parte, finalicé el estándar de los dataTables, archivo que compartí a través del grupo de whatsapp, con sus modales,
+botones redondeados y sin bordes, y además completé en su totalidad el que en esta carpeta se encuentra. (salas.html)
+
+Isis: Completó de igual manera el archivo que se encuentra en esta carpeta, tradujo el dataTable al español y adaptó los campos
+de la misma de acuerdo a la tabla que le tocó.

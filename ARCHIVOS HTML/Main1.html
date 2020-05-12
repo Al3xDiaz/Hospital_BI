@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Hospital - HBI</title>
+
+  <meta name="description" content="Minimal empty page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- basic styles -->
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+  <link rel="stylesheet" href="assets/css/ace-fonts.css" />
+  <link rel="stylesheet" href="assets/css/ace.min.css" />
+  <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+  <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <script src="assets/js/ace-extra.min.js"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-default" id="navbar">
+	    <script type="text/javascript">
+	      try {
+	        ace.settings.check('navbar', 'fixed')
+	      } catch (e) {}
+	    </script>
+
+	    <div class="navbar-container" id="navbar-container">
+	      <div class="navbar-header pull-left">
+	        <a href="#" class="navbar-brand text-center">
+	          <small>
+	            <img src="assets/img/bi-white.png" width="60px" style="margin-left: 12px" />
+	            Hospital
+	          </small>
+	        </a><!-- /.brand -->
+	      </div><!-- /.navbar-header -->
+
+	      <div class="navbar-header pull-right" role="navigation" style="background-color: #438eb9;">
+	        <ul class="nav ace-nav">
+
+
+	          <li class="">
+	            <a data-toggle="dropdown" href="#" class="dropdown-toggle" style="background-color: #438eb9;">
+	              <img class="nav-user-photo" src="assets/img/user.png" alt="Jason's Photo" />
+	              <span class="user-info">
+	                <small>Welcome,</small>
+	                Jason
+	              </span>
+
+	              <i class="icon-caret-down"></i>
+	            </a>
+
+	            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+	              <li>
+	                <a href="#">
+	                  <i class="icon-cog"></i>
+	                  Settings
+	                </a>
+	              </li>
+
+	              <li class="divider"></li>
+
+	              <li>
+	                <a href="#">
+	                  <i class="icon-off"></i>
+	                  Logout
+	                </a>
+	              </li>
+	            </ul>
+	          </li>
+	        </ul><!-- /.ace-nav -->
+	      </div><!-- /.navbar-header -->
+	    </div><!-- /.container -->
+  </div>
+
+  <div class="main-container" id="main-container">
+    <script type="text/javascript">
+      try {
+        ace.settings.check('main-container', 'fixed')
+      } catch (e) {}
+    </script>
+
+ <!-- Modal de Editar -->
+    <div class="main-container-inner">
+      <a class="menu-toggler" id="menu-toggler" href="#">
+        <span class="menu-text"></span>
+      </a>
+
+      <div class="sidebar" id="sidebar">
+	        <script type="text/javascript">
+	          try {
+	            ace.settings.check('sidebar', 'fixed')
+	          } catch (e) {}
+	        </script>
+          <ul class="nav nav-list">
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Consultas</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="Views/MedicoGeneral/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    General
+                  </a>
+                </li>
+
+                <li>
+                  <a href="Views/MedicoGeneral/IndexConsultasEspecialista.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidad
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Hospitalizaciones</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="Views/SalaCuidados/Index_tbSalaCuidados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Sala de Cuidados
+                  </a>
+                </li>
+
+                <li>
+                  <a href="Views/SalaCuidadosIntensivos/Index_SalaCuidadosIntensivos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Sala de Cuidados Intensivos
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Urgencias</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="Views/MedicoEspecialistaEmergencia/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    General
+                  </a>
+                </li>
+
+                <li>
+                  <a href="Views/MedicoGeneralEmergencia/IndexConsultas.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidad
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-tag"></i>
+                <span class="menu-text">Central</span>
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="Views/Admin_Farmacia/Index_InventarioFarmacia.html">
+                    <i class="icon-double-angle-right"></i>
+                    Inventario Farmacia
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Cargos/Crud_tbCargos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Cargos
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Empleados/Index_tbEmpleados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Empleados
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Empleados/Index_TurnoEmpleados.html">
+                    <i class="icon-double-angle-right"></i>
+                    Empleado Turno
+                  </a>
+                </li>
+
+                <li>
+                  <a href="Views/Empleados/Index_TurnoHorarios.html">
+                    <i class="icon-double-angle-right"></i>
+                    Turno Horarios
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Especialidades/Index_Especialidad.html">
+                    <i class="icon-double-angle-right"></i>
+                    Especialidades
+                    <li>
+                      <a href="Views/Cargos/Crud_tbCargos.html">
+                        <i class="icon-double-angle-right"></i>
+                        Cargos
+                      </a>
+                    </li>
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Hospital/Index_InventarioHospital.html">
+                    <i class="icon-double-angle-right"></i>
+                    Inventario Hospital
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/ListaMedicamentos/Index_ListaMedicamentos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Medicamentos
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Pacientes/Index_tbPacientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Pacientes
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Proveedores/IndexProvedor.html">
+                    <i class="icon-double-angle-right"></i>
+                    Proveedores
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Salas/salas.html">
+                    <i class="icon-double-angle-right"></i>
+                    Salas
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Localidad/Crud_tbDepartamentos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Departamentos
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/Localidad/Municipios.html">
+                    <i class="icon-double-angle-right"></i>
+                    Municipios
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/ServiciosMedicos/ServiciosMedicos.html">
+                    <i class="icon-double-angle-right"></i>
+                    Servicios Medicos
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/VentanillaConsultasGeneral/IndexConsultasPendientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Ventanilla General
+                  </a>
+                </li>
+                <li>
+                  <a href="Views/VentanillaConsultaEmergencia/IndexConsultasPendientes.html">
+                    <i class="icon-double-angle-right"></i>
+                    Ventanilla Urgencias
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul><!-- /.nav-list -->
+	        <script type="text/javascript">
+	          try {
+	            ace.settings.check('sidebar', 'collapsed')
+	          } catch (e) {}
+	        </script>
+      </div>
+      <!-- Imágenes animadas - Página Principal -->
+      <div class="main-content">
+        <div class="row">
+
+          <div class="col-md-12 text-center">
+            <img src="assets/img/bi-stroke.png" width="30%" class="animated animatedFadeInUp fadeInUp">
+
+            <div class="animated animatedFadeInUp fadeInUp">
+            <img src="assets/img/arrow.png" width="8%" class="animated animatedFadeInUp fadeInUp">
+            <p>Utiliza uno de los servicios que Hospital BI te ofrece en el menú de la izquierda</p>
+
+                </div>
+            </div>
+          </div>
